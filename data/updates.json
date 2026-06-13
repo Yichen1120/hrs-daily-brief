@@ -2,23 +2,12 @@
   "lastUpdated": "2026-06-13",
   "updates": [
     {
-      "id": "sf-2026-001",
-      "platform": "SAP SuccessFactors",
-      "title": "Performance Preparation Agent: Summarize Detailed 360 Report",
-      "modules": ["Performance & Goals", "AI & Joule"],
-      "date": "2026-02-19",
-      "summary": "Joule's Performance Preparation Agent now supports summarizing the Detailed 360 Report for direct reports, offering insights tailored to managers' queries. Also supports up to five attachments when creating activities.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information/e9989dc2e5b046ec929e2ad5e8305d24/867bc03e161f43f280d14fc4649d8b81.html",
-      "release": "1H 2026"
-    },
-    {
       "id": "sf-2026-002",
       "platform": "SAP SuccessFactors",
       "title": "SAP User Experience Updates in 1H 2026",
-      "modules": ["Platform & Integration"],
+      "modules": [
+        "Platform & Integration"
+      ],
       "date": "2026-05-15",
       "summary": "Several enhancements to the SAP user experience are now available in all systems, including updated navigation components, new Admin Center tools, and improved accessibility features.",
       "type": "Changed",
@@ -28,101 +17,12 @@
       "release": "1H 2026"
     },
     {
-      "id": "sf-2026-003",
-      "platform": "SAP SuccessFactors",
-      "title": "Release Center Adds What's New to Admin Center",
-      "modules": ["Platform & Integration"],
-      "date": "2026-04-10",
-      "summary": "SAP SuccessFactors releases new features every six months. The Release Center in Admin Center now surfaces What's New content directly, making it easier for administrators to review upcoming changes.",
-      "type": "New",
-      "availability": "General Availability",
-      "configRequired": false,
-      "url": "https://help.sap.com/docs/successfactors-release-information/8e0d540f96474717bbf18df51e54e522/f22221c4a63b47aba4e4cd4d9d87647d.html",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-004",
-      "platform": "SAP SuccessFactors",
-      "title": "Recruiting: AI-Assisted Job Description Generation",
-      "modules": ["Recruiting"],
-      "date": "2026-03-20",
-      "summary": "Recruiters can now use Joule to generate and refine job descriptions directly within Recruiting Management. The AI model suggests role responsibilities, qualifications, and inclusive language adjustments.",
-      "type": "New",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-005",
-      "platform": "SAP SuccessFactors",
-      "title": "Onboarding: Improved New Hire Dashboard Experience",
-      "modules": ["Onboarding"],
-      "date": "2026-03-01",
-      "summary": "The new hire dashboard in SAP SuccessFactors Onboarding now supports custom welcome tiles, task grouping by category, and direct manager introduction cards to improve the day-one experience.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-006",
-      "platform": "SAP SuccessFactors",
-      "title": "Compensation: Flexible Budget Distribution Enhancements",
-      "modules": ["Compensation"],
-      "date": "2026-02-28",
-      "summary": "Compensation planners can now apply multiple budget distribution rules within a single compensation cycle, including budget carry-forward across organizational units and improved off-cycle support.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-007",
-      "platform": "SAP SuccessFactors",
-      "title": "Learning: Enhanced External Content Integration via xAPI",
-      "modules": ["Learning & Development"],
-      "date": "2026-01-25",
-      "summary": "SAP SuccessFactors Learning now supports broader xAPI (Tin Can) statement types, enabling richer tracking of external learning activities such as on-the-job training, video completions, and social learning.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-008",
-      "platform": "SAP SuccessFactors",
-      "title": "Succession & Development: Talent Intelligence Hub Updates",
-      "modules": ["Succession & Development", "AI & Joule"],
-      "date": "2026-04-05",
-      "summary": "Talent Intelligence Hub now provides AI-driven successor readiness scoring, incorporating performance ratings, development activities, and competency assessments for a holistic succession view.",
-      "type": "New",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-009",
-      "platform": "SAP SuccessFactors",
-      "title": "Employee Central: Position Management Enhancements",
-      "modules": ["Employee Central"],
-      "date": "2026-02-10",
-      "summary": "Position Management now supports bulk position creation via import, improved position hierarchy visualization, and real-time headcount budget alerts when positions are filled or vacated.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": false,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
       "id": "sf-2026-010",
       "platform": "SAP SuccessFactors",
       "title": "People Analytics: Story Reports Supports Cross-Domain Joins",
-      "modules": ["Analytics & Reporting"],
+      "modules": [
+        "Analytics & Reporting"
+      ],
       "date": "2026-05-01",
       "summary": "Story Reports in People Analytics now supports cross-domain data joins, allowing HR analysts to combine Recruiting, Performance, and Employee Central data in a single report without exporting to external tools.",
       "type": "New",
@@ -132,10 +32,58 @@
       "release": "1H 2026"
     },
     {
+      "id": "sf-2026-003",
+      "platform": "SAP SuccessFactors",
+      "title": "Release Center Adds What's New to Admin Center",
+      "modules": [
+        "Platform & Integration"
+      ],
+      "date": "2026-04-10",
+      "summary": "SAP SuccessFactors releases new features every six months. The Release Center in Admin Center now surfaces What's New content directly, making it easier for administrators to review upcoming changes.",
+      "type": "New",
+      "availability": "General Availability",
+      "configRequired": false,
+      "url": "https://help.sap.com/docs/successfactors-release-information/8e0d540f96474717bbf18df51e54e522/f22221c4a63b47aba4e4cd4d9d87647d.html",
+      "release": "1H 2026"
+    },
+    {
+      "id": "sf-2026-008",
+      "platform": "SAP SuccessFactors",
+      "title": "Succession & Development: Talent Intelligence Hub Updates",
+      "modules": [
+        "Succession & Development",
+        "AI & Joule"
+      ],
+      "date": "2026-04-05",
+      "summary": "Talent Intelligence Hub now provides AI-driven successor readiness scoring, incorporating performance ratings, development activities, and competency assessments for a holistic succession view.",
+      "type": "New",
+      "availability": "General Availability",
+      "configRequired": true,
+      "url": "https://help.sap.com/docs/successfactors-release-information",
+      "release": "1H 2026"
+    },
+    {
+      "id": "sf-2026-004",
+      "platform": "SAP SuccessFactors",
+      "title": "Recruiting: AI-Assisted Job Description Generation",
+      "modules": [
+        "Recruiting"
+      ],
+      "date": "2026-03-20",
+      "summary": "Recruiters can now use Joule to generate and refine job descriptions directly within Recruiting Management. The AI model suggests role responsibilities, qualifications, and inclusive language adjustments.",
+      "type": "New",
+      "availability": "General Availability",
+      "configRequired": true,
+      "url": "https://help.sap.com/docs/successfactors-release-information",
+      "release": "1H 2026"
+    },
+    {
       "id": "wd-2026-001",
       "platform": "Workday",
       "title": "Workday 2026R1: AI-Powered Candidate Ranking in Recruiting",
-      "modules": ["Recruiting"],
+      "modules": [
+        "Recruiting"
+      ],
       "date": "2026-03-15",
       "summary": "Workday 2026R1 introduces AI-powered candidate ranking that scores applicants based on job requirements, historical hiring patterns, and skills data, helping recruiters prioritize the most relevant candidates.",
       "type": "New",
@@ -148,7 +96,10 @@
       "id": "wd-2026-002",
       "platform": "Workday",
       "title": "Workday 2026R1: Dynamic Skills Ontology Updates",
-      "modules": ["Succession & Development", "Recruiting"],
+      "modules": [
+        "Succession & Development",
+        "Recruiting"
+      ],
       "date": "2026-03-15",
       "summary": "The Skills Cloud in Workday now automatically updates its skills ontology based on market signals, ensuring that skill definitions and adjacencies stay current as roles and industries evolve.",
       "type": "Changed",
@@ -161,7 +112,9 @@
       "id": "wd-2026-003",
       "platform": "Workday",
       "title": "Workday 2026R1: Compensation Review Collaborative Workflows",
-      "modules": ["Compensation"],
+      "modules": [
+        "Compensation"
+      ],
       "date": "2026-03-15",
       "summary": "Compensation review cycles now support parallel manager approval workflows, allowing multiple managers to review compensation simultaneously. Includes conflict resolution rules and audit trail improvements.",
       "type": "New",
@@ -174,7 +127,10 @@
       "id": "wd-2026-004",
       "platform": "Workday",
       "title": "Workday 2026R1: Learning Content Recommendations via Workday AI",
-      "modules": ["Learning & Development", "AI & Joule"],
+      "modules": [
+        "Learning & Development",
+        "AI & Joule"
+      ],
       "date": "2026-03-15",
       "summary": "Workday AI now powers personalized learning content recommendations based on an employee's role, career goals, skills gaps, and past learning behavior, surfacing relevant courses directly in the employee home page.",
       "type": "New",
@@ -187,7 +143,9 @@
       "id": "wd-2026-005",
       "platform": "Workday",
       "title": "Workday 2026R1: Performance Journal Enhancements",
-      "modules": ["Performance & Goals"],
+      "modules": [
+        "Performance & Goals"
+      ],
       "date": "2026-03-15",
       "summary": "Performance Journal now integrates with Slack and Microsoft Teams, allowing employees to log achievements and feedback directly from their preferred communication tools without switching to Workday.",
       "type": "Changed",
@@ -200,7 +158,9 @@
       "id": "wd-2026-006",
       "platform": "Workday",
       "title": "Workday 2026R1: Absence Management Global Expansion",
-      "modules": ["Employee Central"],
+      "modules": [
+        "Employee Central"
+      ],
       "date": "2026-03-15",
       "summary": "Workday Absence Management adds native compliance rules for 12 new countries including Taiwan, Thailand, and Vietnam, reducing the need for custom configuration for APAC deployments.",
       "type": "New",
@@ -213,7 +173,10 @@
       "id": "wd-2026-007",
       "platform": "Workday",
       "title": "Workday 2026R1: People Analytics – Predictive Attrition Model",
-      "modules": ["Analytics & Reporting", "AI & Joule"],
+      "modules": [
+        "Analytics & Reporting",
+        "AI & Joule"
+      ],
       "date": "2026-03-15",
       "summary": "Workday People Analytics now includes a pre-built predictive attrition model that identifies at-risk employees using signals such as engagement scores, tenure, role changes, and compensation competitiveness.",
       "type": "New",
@@ -226,7 +189,10 @@
       "id": "wd-2026-008",
       "platform": "Workday",
       "title": "Workday 2026R1: Payroll Connect API Expansion",
-      "modules": ["Payroll", "Platform & Integration"],
+      "modules": [
+        "Payroll",
+        "Platform & Integration"
+      ],
       "date": "2026-03-15",
       "summary": "Payroll Connect REST APIs now expose gross-to-net calculation endpoints and payroll input staging, enabling deeper integration with third-party payroll providers and custom pre-payroll validation logic.",
       "type": "Changed",
@@ -234,6 +200,82 @@
       "configRequired": true,
       "url": "https://www.workday.com/en-us/products/releases-and-innovation.html",
       "release": "2026R1"
+    },
+    {
+      "id": "sf-2026-005",
+      "platform": "SAP SuccessFactors",
+      "title": "Onboarding: Improved New Hire Dashboard Experience",
+      "modules": [
+        "Onboarding"
+      ],
+      "date": "2026-03-01",
+      "summary": "The new hire dashboard in SAP SuccessFactors Onboarding now supports custom welcome tiles, task grouping by category, and direct manager introduction cards to improve the day-one experience.",
+      "type": "Changed",
+      "availability": "General Availability",
+      "configRequired": true,
+      "url": "https://help.sap.com/docs/successfactors-release-information",
+      "release": "1H 2026"
+    },
+    {
+      "id": "sf-2026-006",
+      "platform": "SAP SuccessFactors",
+      "title": "Compensation: Flexible Budget Distribution Enhancements",
+      "modules": [
+        "Compensation"
+      ],
+      "date": "2026-02-28",
+      "summary": "Compensation planners can now apply multiple budget distribution rules within a single compensation cycle, including budget carry-forward across organizational units and improved off-cycle support.",
+      "type": "Changed",
+      "availability": "General Availability",
+      "configRequired": true,
+      "url": "https://help.sap.com/docs/successfactors-release-information",
+      "release": "1H 2026"
+    },
+    {
+      "id": "sf-2026-001",
+      "platform": "SAP SuccessFactors",
+      "title": "Performance Preparation Agent: Summarize Detailed 360 Report",
+      "modules": [
+        "Performance & Goals",
+        "AI & Joule"
+      ],
+      "date": "2026-02-19",
+      "summary": "Joule's Performance Preparation Agent now supports summarizing the Detailed 360 Report for direct reports, offering insights tailored to managers' queries. Also supports up to five attachments when creating activities.",
+      "type": "Changed",
+      "availability": "General Availability",
+      "configRequired": true,
+      "url": "https://help.sap.com/docs/successfactors-release-information/e9989dc2e5b046ec929e2ad5e8305d24/867bc03e161f43f280d14fc4649d8b81.html",
+      "release": "1H 2026"
+    },
+    {
+      "id": "sf-2026-009",
+      "platform": "SAP SuccessFactors",
+      "title": "Employee Central: Position Management Enhancements",
+      "modules": [
+        "Employee Central"
+      ],
+      "date": "2026-02-10",
+      "summary": "Position Management now supports bulk position creation via import, improved position hierarchy visualization, and real-time headcount budget alerts when positions are filled or vacated.",
+      "type": "Changed",
+      "availability": "General Availability",
+      "configRequired": false,
+      "url": "https://help.sap.com/docs/successfactors-release-information",
+      "release": "1H 2026"
+    },
+    {
+      "id": "sf-2026-007",
+      "platform": "SAP SuccessFactors",
+      "title": "Learning: Enhanced External Content Integration via xAPI",
+      "modules": [
+        "Learning & Development"
+      ],
+      "date": "2026-01-25",
+      "summary": "SAP SuccessFactors Learning now supports broader xAPI (Tin Can) statement types, enabling richer tracking of external learning activities such as on-the-job training, video completions, and social learning.",
+      "type": "Changed",
+      "availability": "General Availability",
+      "configRequired": true,
+      "url": "https://help.sap.com/docs/successfactors-release-information",
+      "release": "1H 2026"
     }
   ]
 }
