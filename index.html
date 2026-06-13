@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harry's HRIS Life</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sf:#0070F3;--wd:#0F62FE;
+  --bg:#EDF1F7;--card:#fff;
+  --hdr:#0F172A;--text:#1E293B;--muted:#64748B;--border:#E2E8F0;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;
+  background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+
+/* ── Header ── */
+header{
+  background:var(--hdr);color:#fff;padding:11px 20px;
+  display:flex;align-items:center;gap:14px;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 12px rgba(0,0,0,.4)
+}
+.logo{font-size:16px;font-weight:800;white-space:nowrap;letter-spacing:-.3px}
+.logo .accent{color:#60A5FA}
+.logo .dim{color:#94A3B8;font-weight:500}
+.sw{flex:1;max-width:380px;position:relative}
+.sw input{
+  width:100%;padding:7px 12px 7px 32px;
+  border:1px solid #334155;border-radius:9px;
+  background:#1E293B;color:#fff;font-size:13px;outline:none;transition:border-color .2s
+}
+.sw input::placeholder{color:#94A3B8}
+.sw input:focus{border-color:#60A5FA}
+.sw svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:#94A3B8;pointer-events:none}
+.hdr-r{margin-left:auto;display:flex;align-items:center;gap:9px}
+.upd{font-size:11.5px;color:#94A3B8;white-space:nowrap}
+.rbtn{
+  background:#1E293B;border:1px solid #334155;color:#94A3B8;
+  padding:5px 11px;border-radius:7px;cursor:pointer;font-size:12.5px;transition:all .2s
+}
+.rbtn:hover{background:#334155;color:#fff}
+
+/* ── Filter bar ── */
+.fbar{
+  background:#fff;border-bottom:1px solid var(--border);
+  padding:10px 20px 8px;position:sticky;top:43px;z-index:100;
+  display:flex;flex-direction:column;gap:7px;
+  box-shadow:0 2px 8px rgba(0,0,0,.04)
+}
+.frow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.frow-label{font-size:10.5px;font-weight:700;color:#94A3B8;text-transform:uppercase;
+  letter-spacing:.6px;white-space:nowrap;margin-right:2px}
+.fdivider{width:1px;height:18px;background:var(--border);margin:0 4px}
+
+/* Platform chips */
+.pchip{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 11px;border:1.5px solid var(--border);border-radius:20px;
+  background:#fff;color:var(--muted);cursor:pointer;font-size:12.5px;
+  font-weight:500;transition:all .15s;white-space:nowrap
+}
+.pchip:hover{border-color:#94A3B8;color:var(--text)}
+.pchip.active{background:#1E293B;border-color:#1E293B;color:#fff;font-weight:600}
+.pchip .pdot{width:7px;height:7px;border-radius:50%}
+.pchip .pcnt{font-size:11px;opacity:.75}
+
+/* Module chips */
+.mchip{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:3px 10px;border:1.5px solid var(--border);border-radius:16px;
+  background:#fff;color:var(--muted);cursor:pointer;font-size:11.5px;
+  font-weight:500;transition:all .15s;white-space:nowrap
+}
+.mchip:hover{border-color:#94A3B8;color:var(--text)}
+.mchip.active{font-weight:700;border-color:transparent}
+.mchip .mdot{width:6px;height:6px;border-radius:50%}
+.mchip .mcnt{font-size:10.5px;opacity:.75}
+
+/* Active module chip colors */
+.mchip[data-mod="Recruiting"].active          {background:#ECFDF5;color:#065F46;border-color:#A7F3D0}
+.mchip[data-mod="Onboarding"].active          {background:#F5F3FF;color:#4C1D95;border-color:#DDD6FE}
+.mchip[data-mod="Performance & Goals"].active {background:#FFFBEB;color:#78350F;border-color:#FDE68A}
+.mchip[data-mod="Learning & Development"].active{background:#EFF6FF;color:#1E40AF;border-color:#BFDBFE}
+.mchip[data-mod="Compensation"].active        {background:#FFF1F2;color:#881337;border-color:#FECDD3}
+.mchip[data-mod="Succession & Development"].active{background:#FAF5FF;color:#581C87;border-color:#E9D5FF}
+.mchip[data-mod="Employee Central"].active    {background:#ECFEFF;color:#164E63;border-color:#A5F3FC}
+.mchip[data-mod="Payroll"].active             {background:#FFF0F3;color:#9D174D;border-color:#FBCFE8}
+.mchip[data-mod="Analytics & Reporting"].active{background:#F0FDF9;color:#134E4A;border-color:#99F6E4}
+.mchip[data-mod="AI & Joule"].active          {background:#FFF7ED;color:#7C2D12;border-color:#FED7AA}
+.mchip[data-mod="Platform & Integration"].active{background:#F5F5F4;color:#44403C;border-color:#D6D3D1}
+.mchip[data-mod="all"].active                 {background:#1E293B;color:#fff;border-color:#1E293B}
+
+/* ── Toolbar ── */
+.toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 20px 8px;flex-wrap:wrap;gap:6px
+}
+.rcnt{font-size:12.5px;color:var(--muted);font-weight:500}
+.ssel{
+  padding:5px 26px 5px 9px;border:1px solid var(--border);border-radius:7px;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2364748B' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") no-repeat right 7px center;
+  font-size:12.5px;cursor:pointer;outline:none;appearance:none;color:var(--text)
+}
+
+/* ── Cards grid ── */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px;padding:0 20px 24px
+}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px) {.grid{grid-template-columns:1fr}}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  border-left:4px solid;
+  padding:13px 14px;
+  display:flex;flex-direction:column;gap:8px;
+  box-shadow:0 3px 14px rgba(15,23,42,.07),0 1px 4px rgba(15,23,42,.04);
+  transition:transform .2s cubic-bezier(.4,0,.2,1),box-shadow .2s cubic-bezier(.4,0,.2,1)
+}
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(15,23,42,.11),0 3px 10px rgba(15,23,42,.06)
+}
+.card.sf{border-left-color:var(--sf)}
+.card.wd{border-left-color:var(--wd)}
+
+/* card top row */
+.ct{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.pbadge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.1px}
+.pbadge.sf{background:#EFF6FF;color:var(--sf);border:1px solid #BFDBFE}
+.pbadge.wd{background:#EFF6FF;color:var(--wd);border:1px solid #BFDBFE}
+.newpill{background:#D1FAE5;color:#065F46;font-size:9.5px;font-weight:700;
+  padding:2px 6px;border-radius:4px}
+.relpill{background:#F1F5F9;color:#475569;font-size:9.5px;padding:2px 6px;border-radius:4px}
+
+/* title */
+.ctitle{
+  font-size:13.5px;font-weight:700;line-height:1.45;color:var(--text);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden
+}
+
+/* summary */
+.csum{
+  font-size:12px;color:var(--muted);line-height:1.6;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  flex:1
+}
+
+/* tags row */
+.ctags{display:flex;gap:4px;flex-wrap:wrap}
+.tag{font-size:10.5px;font-weight:500;padding:2px 7px;border-radius:4px}
+.t-rc{background:#ECFDF5;color:#065F46;border:1px solid #A7F3D0}
+.t-ob{background:#F5F3FF;color:#4C1D95;border:1px solid #DDD6FE}
+.t-pm{background:#FFFBEB;color:#78350F;border:1px solid #FDE68A}
+.t-lm{background:#EFF6FF;color:#1E40AF;border:1px solid #BFDBFE}
+.t-cp{background:#FFF1F2;color:#881337;border:1px solid #FECDD3}
+.t-sc{background:#FAF5FF;color:#581C87;border:1px solid #E9D5FF}
+.t-ec{background:#ECFEFF;color:#164E63;border:1px solid #A5F3FC}
+.t-py{background:#FFF0F3;color:#9D174D;border:1px solid #FBCFE8}
+.t-an{background:#F0FDF9;color:#134E4A;border:1px solid #99F6E4}
+.t-pl{background:#F5F5F4;color:#44403C;border:1px solid #D6D3D1}
+.t-ai{background:#FFF7ED;color:#7C2D12;border:1px solid #FED7AA}
+
+/* card footer */
+.cfoot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:8px;border-top:1px solid #F1F5F9;gap:6px;flex-wrap:wrap
+}
+.cmeta{display:flex;align-items:center;gap:5px}
+.tbadge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px}
+.tNew{background:#D1FAE5;color:#065F46}
+.tChanged{background:#FEF3C7;color:#92400E}
+.tDeprecated{background:#FEE2E2;color:#991B1B}
+.cdate{font-size:11px;color:var(--muted)}
+.cfg{font-size:10px;color:#F59E0B}
+.rbtn2{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:5px 12px;background:var(--text);color:#fff;
+  border-radius:7px;font-size:11.5px;font-weight:600;
+  text-decoration:none;transition:background .15s,transform .1s;white-space:nowrap
+}
+.rbtn2:hover{background:#3B82F6;transform:scale(1.03)}
+.card.sf .rbtn2:hover{background:var(--sf)}
+.card.wd .rbtn2:hover{background:var(--wd)}
+
+/* empty / loading */
+.empty{text-align:center;padding:60px 24px;color:var(--muted);grid-column:1/-1}
+.empty .ico{font-size:40px;margin-bottom:10px}
+.spin{width:28px;height:28px;border:3px solid var(--border);border-top-color:#3B82F6;
+  border-radius:50%;animation:sp .7s linear infinite;margin:0 auto 10px}
+@keyframes sp{to{transform:rotate(360deg)}}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <span class="dim">Harry's </span><span class="accent">HRIS</span> Life
+  </div>
+  <div class="sw">
+    <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
+      <circle cx="8.5" cy="8.5" r="5.75" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M13 13l3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <input type="text" id="q" placeholder="搜尋功能、模組、關鍵字…" oninput="render()">
+  </div>
+  <div class="hdr-r">
+    <span class="upd" id="lupd"></span>
+    <button class="rbtn" onclick="load()">↻ 更新</button>
+  </div>
+</header>
+
+<!-- Filter bar -->
+<div class="fbar">
+  <!-- Platform row -->
+  <div class="frow">
+    <span class="frow-label">平台</span>
+    <button class="pchip active" data-plat="all" onclick="setPlat('all',this)">
+      <span class="pdot" style="background:#94A3B8"></span>全部
+      <span class="pcnt" id="p-all">0</span>
+    </button>
+    <button class="pchip" data-plat="SAP SuccessFactors" onclick="setPlat('SAP SuccessFactors',this)">
+      <span class="pdot" style="background:#0070F3"></span>SAP SuccessFactors
+      <span class="pcnt" id="p-sf">0</span>
+    </button>
+    <button class="pchip" data-plat="Workday" onclick="setPlat('Workday',this)">
+      <span class="pdot" style="background:#0F62FE"></span>Workday
+      <span class="pcnt" id="p-wd">0</span>
+    </button>
+
+    <div class="fdivider"></div>
+
+    <!-- Module chips in same row, scrollable on narrow screens -->
+    <span class="frow-label">模組</span>
+    <button class="mchip active" data-mod="all" onclick="setMod('all',this)">
+      <span class="mdot" style="background:#94A3B8"></span>全部
+      <span class="mcnt" id="m-all">0</span>
+    </button>
+    <button class="mchip" data-mod="Recruiting" onclick="setMod('Recruiting',this)">
+      <span class="mdot" style="background:#10B981"></span>招募
+      <span class="mcnt" id="m-rc">0</span>
+    </button>
+    <button class="mchip" data-mod="Onboarding" onclick="setMod('Onboarding',this)">
+      <span class="mdot" style="background:#8B5CF6"></span>入職
+      <span class="mcnt" id="m-ob">0</span>
+    </button>
+    <button class="mchip" data-mod="Performance & Goals" onclick="setMod('Performance & Goals',this)">
+      <span class="mdot" style="background:#F59E0B"></span>績效
+      <span class="mcnt" id="m-pm">0</span>
+    </button>
+    <button class="mchip" data-mod="Learning & Development" onclick="setMod('Learning & Development',this)">
+      <span class="mdot" style="background:#3B82F6"></span>學習
+      <span class="mcnt" id="m-lm">0</span>
+    </button>
+    <button class="mchip" data-mod="Compensation" onclick="setMod('Compensation',this)">
+      <span class="mdot" style="background:#EF4444"></span>薪酬
+      <span class="mcnt" id="m-cp">0</span>
+    </button>
+    <button class="mchip" data-mod="Succession & Development" onclick="setMod('Succession & Development',this)">
+      <span class="mdot" style="background:#A855F7"></span>繼任
+      <span class="mcnt" id="m-sc">0</span>
+    </button>
+    <button class="mchip" data-mod="Employee Central" onclick="setMod('Employee Central',this)">
+      <span class="mdot" style="background:#06B6D4"></span>EC
+      <span class="mcnt" id="m-ec">0</span>
+    </button>
+    <button class="mchip" data-mod="Payroll" onclick="setMod('Payroll',this)">
+      <span class="mdot" style="background:#EC4899"></span>薪資
+      <span class="mcnt" id="m-py">0</span>
+    </button>
+    <button class="mchip" data-mod="Analytics & Reporting" onclick="setMod('Analytics & Reporting',this)">
+      <span class="mdot" style="background:#14B8A6"></span>分析
+      <span class="mcnt" id="m-an">0</span>
+    </button>
+    <button class="mchip" data-mod="AI & Joule" onclick="setMod('AI & Joule',this)">
+      <span class="mdot" style="background:#F97316"></span>AI&Joule
+      <span class="mcnt" id="m-ai">0</span>
+    </button>
+    <button class="mchip" data-mod="Platform & Integration" onclick="setMod('Platform & Integration',this)">
+      <span class="mdot" style="background:#78716C"></span>平台
+      <span class="mcnt" id="m-pl">0</span>
+    </button>
+  </div>
+</div>
+
+<!-- Toolbar -->
+<div class="toolbar">
+  <span class="rcnt" id="cnt"></span>
+  <select class="ssel" onchange="sortBy=this.value;render()">
+    <option value="date-desc">最新優先</option>
+    <option value="date-asc">最舊優先</option>
+    <option value="platform">依平台</option>
+  </select>
+</div>
+
+<!-- Cards -->
+<div class="grid" id="box">
+  <div class="empty"><div class="spin"></div>載入中…</div>
+</div>
+
+<script>
+let all=[],plat='all',mod='all',sortBy='date-desc';
+
+const TAG={
+  'Recruiting':            ['招募','t-rc'],
+  'Onboarding':            ['入職','t-ob'],
+  'Performance & Goals':   ['績效','t-pm'],
+  'Learning & Development':['學習','t-lm'],
+  'Compensation':          ['薪酬','t-cp'],
+  'Succession & Development':['繼任','t-sc'],
+  'Employee Central':      ['EC','t-ec'],
+  'Payroll':               ['薪資','t-py'],
+  'Analytics & Reporting': ['分析','t-an'],
+  'Platform & Integration':['平台','t-pl'],
+  'AI & Joule':            ['AI','t-ai'],
+};
+
+async function load(){
+  try{
+    const r=await fetch('data/updates.json?_='+Date.now());
+    const d=await r.json();
+    all=d.updates||[];
+    document.getElementById('lupd').textContent=d.lastUpdated?'更新: '+d.lastUpdated:'';
+    counts();render();
+  }catch(e){
+    document.getElementById('box').innerHTML='<div class="empty"><div class="ico">⚠️</div>無法載入資料</div>';
+  }
+}
+
+function filtered(){
+  const q=(document.getElementById('q').value||'').toLowerCase();
+  return all.filter(u=>{
+    if(plat!=='all'&&u.platform!==plat)return false;
+    if(mod!=='all'&&!(u.modules||[]).includes(mod))return false;
+    if(q&&![u.title,u.summary,...(u.modules||[]),u.platform].join(' ').toLowerCase().includes(q))return false;
+    return true;
+  }).sort((a,b)=>{
+    if(sortBy==='date-desc')return(b.date||'')>(a.date||'')?1:-1;
+    if(sortBy==='date-asc') return(a.date||'')>(b.date||'')?1:-1;
+    return a.platform.localeCompare(b.platform);
+  });
+}
+
+function counts(){
+  const pf=u=>plat==='all'||u.platform===plat;
+  document.getElementById('p-all').textContent=all.length;
+  document.getElementById('p-sf').textContent=all.filter(u=>u.platform==='SAP SuccessFactors').length;
+  document.getElementById('p-wd').textContent=all.filter(u=>u.platform==='Workday').length;
+  const base=all.filter(pf);
+  document.getElementById('m-all').textContent=base.length;
+  const mp={rc:'Recruiting',ob:'Onboarding',pm:'Performance & Goals',lm:'Learning & Development',
+    cp:'Compensation',sc:'Succession & Development',ec:'Employee Central',py:'Payroll',
+    an:'Analytics & Reporting',ai:'AI & Joule',pl:'Platform & Integration'};
+  for(const[k,v]of Object.entries(mp)){
+    const el=document.getElementById('m-'+k);
+    if(el)el.textContent=base.filter(u=>(u.modules||[]).includes(v)).length;
+  }
+}
+
+function isNew(d){return d&&(new Date()-new Date(d))/864e5<=14}
+
+function card(u){
+  const pfc=u.platform==='SAP SuccessFactors'?'sf':'wd';
+  const pfl=u.platform==='SAP SuccessFactors'?'SAP SF':'Workday';
+  const dt=u.date?new Date(u.date).toLocaleDateString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit'}):'';
+  const tags=(u.modules||[]).map(m=>{const[zh,c]=TAG[m]||[m,'t-pl'];return`<span class="tag ${c}">${zh}</span>`}).join('');
+  const tc={New:'tNew',Changed:'tChanged',Deprecated:'tDeprecated'}[u.type]||'tChanged';
+  const newp=isNew(u.date)?'<span class="newpill">NEW</span>':'';
+  const relp=u.release&&u.release!=='auto-scraped'?`<span class="relpill">${u.release}</span>`:'';
+  const cfg=u.configRequired?'<span class="cfg">⚙</span>':'';
+  const rb=u.url?`<a class="rbtn2" href="${u.url}" target="_blank" rel="noopener noreferrer">閱讀原文 →</a>`:'';
+  return`<div class="card ${pfc}">
+  <div class="ct"><span class="pbadge ${pfc}">${pfl}</span>${newp}${relp}</div>
+  <div class="ctitle">${u.title||''}</div>
+  <div class="csum">${u.summary||''}</div>
+  <div class="ctags">${tags}</div>
+  <div class="cfoot">
+    <div class="cmeta"><span class="tbadge ${tc}">${u.type||''}</span>${cfg}<span class="cdate">${dt}</span></div>
+    ${rb}
+  </div>
+</div>`;
+}
+
+function render(){
+  const f=filtered();
+  document.getElementById('cnt').textContent=`共 ${f.length} 則更新`;
+  document.getElementById('box').innerHTML=f.length
+    ?f.map(card).join('')
+    :'<div class="empty"><div class="ico">🔍</div>沒有符合條件的更新</div>';
+}
+
+function setPlat(p,btn){
+  plat=p;
+  document.querySelectorAll('.pchip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  counts();render();
+}
+function setMod(m,btn){
+  mod=m;
+  document.querySelectorAll('.mchip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+load();
+</script>
+</body>
+</html>

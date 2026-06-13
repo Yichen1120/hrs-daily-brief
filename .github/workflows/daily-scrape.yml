@@ -1,0 +1,35 @@
+name: Daily HRS Update Scraper
+
+on:
+  schedule:
+    # 每天台灣時間 07:00 執行（UTC+8 → UTC 23:00 前一天）
+    - cron: "0 23 * * *"
+  workflow_dispatch:  # 允許手動觸發
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run scraper
+        env:
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+        run: python scripts/scrape.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/updates.json
+          git diff --staged --quiet || git commit -m "chore: daily HRS update $(date +'%Y-%m-%d')"
+          git push
