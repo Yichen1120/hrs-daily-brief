@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-24",
+  "lastUpdated": "2026-07-25",
   "updates": [
     {
       "id": "sf-2026-002",
@@ -259,21 +259,6 @@
       "type": "Changed",
       "availability": "General Availability",
       "configRequired": false,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-007",
-      "platform": "SAP SuccessFactors",
-      "title": "Learning: Enhanced External Content Integration via xAPI",
-      "modules": [
-        "Learning & Development"
-      ],
-      "date": "2026-01-25",
-      "summary": "SAP SuccessFactors Learning now supports broader xAPI (Tin Can) statement types, enabling richer tracking of external learning activities such as on-the-job training, video completions, and social learning.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": true,
       "url": "https://help.sap.com/docs/successfactors-release-information",
       "release": "1H 2026"
     }
