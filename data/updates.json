@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-18",
+  "lastUpdated": "2026-08-19",
   "updates": [
     {
       "id": "sf-2026-002",
@@ -229,22 +229,6 @@
       "availability": "General Availability",
       "configRequired": true,
       "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-001",
-      "platform": "SAP SuccessFactors",
-      "title": "Performance Preparation Agent: Summarize Detailed 360 Report",
-      "modules": [
-        "Performance & Goals",
-        "AI & Joule"
-      ],
-      "date": "2026-02-19",
-      "summary": "Joule's Performance Preparation Agent now supports summarizing the Detailed 360 Report for direct reports, offering insights tailored to managers' queries. Also supports up to five attachments when creating activities.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information/e9989dc2e5b046ec929e2ad5e8305d24/867bc03e161f43f280d14fc4649d8b81.html",
       "release": "1H 2026"
     }
   ]
