@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-27",
+  "lastUpdated": "2026-08-28",
   "updates": [
     {
       "id": "sf-2026-002",
@@ -210,21 +210,6 @@
       ],
       "date": "2026-03-01",
       "summary": "The new hire dashboard in SAP SuccessFactors Onboarding now supports custom welcome tiles, task grouping by category, and direct manager introduction cards to improve the day-one experience.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-006",
-      "platform": "SAP SuccessFactors",
-      "title": "Compensation: Flexible Budget Distribution Enhancements",
-      "modules": [
-        "Compensation"
-      ],
-      "date": "2026-02-28",
-      "summary": "Compensation planners can now apply multiple budget distribution rules within a single compensation cycle, including budget carry-forward across organizational units and improved off-cycle support.",
       "type": "Changed",
       "availability": "General Availability",
       "configRequired": true,
