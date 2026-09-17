@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-16",
+  "lastUpdated": "2026-09-17",
   "updates": [
     {
       "id": "sf-2026-002",
@@ -56,21 +56,6 @@
       ],
       "date": "2026-04-05",
       "summary": "Talent Intelligence Hub now provides AI-driven successor readiness scoring, incorporating performance ratings, development activities, and competency assessments for a holistic succession view.",
-      "type": "New",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-004",
-      "platform": "SAP SuccessFactors",
-      "title": "Recruiting: AI-Assisted Job Description Generation",
-      "modules": [
-        "Recruiting"
-      ],
-      "date": "2026-03-20",
-      "summary": "Recruiters can now use Joule to generate and refine job descriptions directly within Recruiting Management. The AI model suggests role responsibilities, qualifications, and inclusive language adjustments.",
       "type": "New",
       "availability": "General Availability",
       "configRequired": true,
