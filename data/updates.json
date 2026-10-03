@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-02",
+  "lastUpdated": "2026-10-03",
   "updates": [
     {
       "id": "sf-2026-002",
@@ -44,22 +44,6 @@
       "availability": "General Availability",
       "configRequired": false,
       "url": "https://help.sap.com/docs/successfactors-release-information/8e0d540f96474717bbf18df51e54e522/f22221c4a63b47aba4e4cd4d9d87647d.html",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-008",
-      "platform": "SAP SuccessFactors",
-      "title": "Succession & Development: Talent Intelligence Hub Updates",
-      "modules": [
-        "Succession & Development",
-        "AI & Joule"
-      ],
-      "date": "2026-04-05",
-      "summary": "Talent Intelligence Hub now provides AI-driven successor readiness scoring, incorporating performance ratings, development activities, and competency assessments for a holistic succession view.",
-      "type": "New",
-      "availability": "General Availability",
-      "configRequired": true,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
       "release": "1H 2026"
     }
   ]
