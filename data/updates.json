@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-07",
+  "lastUpdated": "2026-10-08",
   "updates": [
     {
       "id": "sf-2026-002",
@@ -29,21 +29,6 @@
       "availability": "General Availability",
       "configRequired": false,
       "url": "https://help.sap.com/docs/successfactors-release-information",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-003",
-      "platform": "SAP SuccessFactors",
-      "title": "Release Center Adds What's New to Admin Center",
-      "modules": [
-        "Platform & Integration"
-      ],
-      "date": "2026-04-10",
-      "summary": "SAP SuccessFactors releases new features every six months. The Release Center in Admin Center now surfaces What's New content directly, making it easier for administrators to review upcoming changes.",
-      "type": "New",
-      "availability": "General Availability",
-      "configRequired": false,
-      "url": "https://help.sap.com/docs/successfactors-release-information/8e0d540f96474717bbf18df51e54e522/f22221c4a63b47aba4e4cd4d9d87647d.html",
       "release": "1H 2026"
     }
   ]
