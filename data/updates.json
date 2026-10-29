@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-28",
+  "lastUpdated": "2026-10-29",
   "updates": [
     {
       "id": "sf-2026-002",
@@ -14,21 +14,6 @@
       "availability": "General Availability",
       "configRequired": false,
       "url": "https://help.sap.com/docs/successfactors-release-information/8e0d540f96474717bbf18df51e54e522/1e0c1f773fd04c5697d4d8ff2699c534.html",
-      "release": "1H 2026"
-    },
-    {
-      "id": "sf-2026-010",
-      "platform": "SAP SuccessFactors",
-      "title": "People Analytics: Story Reports Supports Cross-Domain Joins",
-      "modules": [
-        "Analytics & Reporting"
-      ],
-      "date": "2026-05-01",
-      "summary": "Story Reports in People Analytics now supports cross-domain data joins, allowing HR analysts to combine Recruiting, Performance, and Employee Central data in a single report without exporting to external tools.",
-      "type": "New",
-      "availability": "General Availability",
-      "configRequired": false,
-      "url": "https://help.sap.com/docs/successfactors-release-information",
       "release": "1H 2026"
     }
   ]
