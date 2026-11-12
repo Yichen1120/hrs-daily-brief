@@ -1,20 +1,4 @@
 {
-  "lastUpdated": "2026-11-11",
-  "updates": [
-    {
-      "id": "sf-2026-002",
-      "platform": "SAP SuccessFactors",
-      "title": "SAP User Experience Updates in 1H 2026",
-      "modules": [
-        "Platform & Integration"
-      ],
-      "date": "2026-05-15",
-      "summary": "Several enhancements to the SAP user experience are now available in all systems, including updated navigation components, new Admin Center tools, and improved accessibility features.",
-      "type": "Changed",
-      "availability": "General Availability",
-      "configRequired": false,
-      "url": "https://help.sap.com/docs/successfactors-release-information/8e0d540f96474717bbf18df51e54e522/1e0c1f773fd04c5697d4d8ff2699c534.html",
-      "release": "1H 2026"
-    }
-  ]
+  "lastUpdated": "2026-11-12",
+  "updates": []
 }
